@@ -1,7 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.Generic;
+
+using System;
 
 namespace KingPandaMedia.Models.Tables
 {
@@ -10,15 +10,15 @@ namespace KingPandaMedia.Models.Tables
         [Key]
         public int OrderID { get; set; }
 
-        [ForeignKey("Employee")]
-        public int EmployeeID { get; set; }
+        [ForeignKey("EmployeeID")]
+        public virtual Employees Employee { get; set; }
 
-        [ForeignKey("User")]
-        public int UserID { get; set; }
+        [ForeignKey("UserID")]
+        public virtual Users Users { get; set; }
 
         public string Category { get; set; }
 
-        [Column(TypeName ="decimal(18,2)")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
         [DataType(DataType.Date)]

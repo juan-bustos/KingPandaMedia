@@ -25,9 +25,9 @@ namespace KingPandaMedia.Models
 
             context.Database.Migrate();
             context.Orders.AddRange(
-            new Orders { EmployeeID = 1, UserID = 3, Category = "Platinum", Price = 350M },
-            new Orders { EmployeeID = 3, UserID = 2, Category = "Basic", Price = 50M },
-            new Orders { EmployeeID = 2, UserID = 1, Category = "Premium", Price = 250M });
+            new Orders { Employee = null, Users = null, Category = "Platinum", Price = 350M },
+            new Orders { Employee = null, Users = null, Category = "Basic", Price = 50M },
+            new Orders { Employee = null, Users = null, Category = "Premium", Price = 250M });
 
             context.Database.Migrate();
             context.Media.AddRange(

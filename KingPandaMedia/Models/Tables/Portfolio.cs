@@ -9,8 +9,8 @@ namespace KingPandaMedia.Models.Tables
         [Key]
         public int ImageID { get; set; }
 
-        [ForeignKey("Employee")]
-        public int EmployeeID { get; set; }
+        [ForeignKey("EmployeeID")]
+        public virtual Employees Employee { get; set; }
 
         public string MediaCategory { get; set; }
 

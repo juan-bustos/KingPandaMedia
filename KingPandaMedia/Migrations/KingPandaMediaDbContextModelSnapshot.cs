@@ -56,16 +56,20 @@ namespace KingPandaMedia.Migrations
 
                     b.Property<string>("Category");
 
-                    b.Property<int>("EmployeeID");
+                    b.Property<int?>("EmployeeID");
 
                     b.Property<DateTime>("OrderDate");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UserID");
+                    b.Property<int?>("UserID");
 
                     b.HasKey("OrderID");
+
+                    b.HasIndex("EmployeeID");
+
+                    b.HasIndex("UserID");
 
                     b.ToTable("Orders");
                 });
@@ -76,7 +80,7 @@ namespace KingPandaMedia.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("EmployeeID");
+                    b.Property<int?>("EmployeeID");
 
                     b.Property<string>("ImageURL")
                         .IsRequired()
@@ -85,6 +89,8 @@ namespace KingPandaMedia.Migrations
                     b.Property<string>("MediaCategory");
 
                     b.HasKey("ImageID");
+
+                    b.HasIndex("EmployeeID");
 
                     b.ToTable("Media");
                 });
@@ -120,6 +126,24 @@ namespace KingPandaMedia.Migrations
                     b.HasKey("UserID");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("KingPandaMedia.Models.Tables.Orders", b =>
+                {
+                    b.HasOne("KingPandaMedia.Models.Tables.Employees", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeID");
+
+                    b.HasOne("KingPandaMedia.Models.Tables.Users", "Users")
+                        .WithMany()
+                        .HasForeignKey("UserID");
+                });
+
+            modelBuilder.Entity("KingPandaMedia.Models.Tables.Portfolio", b =>
+                {
+                    b.HasOne("KingPandaMedia.Models.Tables.Employees", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeID");
                 });
 #pragma warning restore 612, 618
         }
