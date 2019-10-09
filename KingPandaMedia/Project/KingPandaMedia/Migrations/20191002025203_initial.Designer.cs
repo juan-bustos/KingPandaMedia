@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KingPandaMedia.Migrations
 {
     [DbContext(typeof(KingPandaMediaDbContext))]
-    [Migration("20190928194756_initial")]
+    [Migration("20191002025203_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -121,6 +121,10 @@ namespace KingPandaMedia.Migrations
 
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmPassword")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Email")
                         .IsRequired()

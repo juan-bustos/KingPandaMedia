@@ -15,7 +15,7 @@ namespace KingPandaMedia.Models.Tables
 
         [ForeignKey("Users")]
         public int UserID { get; set; }
-        public virtual User User { get; set; }
+        public virtual KPMUser User { get; set; }
 
         public string Category { get; set; }
 

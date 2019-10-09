@@ -1,41 +1,50 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
-namespace KingPandaMedia.ViewModels
+namespace KingPandaMedia.Models.ViewModels
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage = "First Name Required")]
-        [StringLength(30)]
+        [Key]
+        public int UserID { get; set; }
+
+        [Required(ErrorMessage = " Enter a username"), StringLength(20)]
+        public  string UserName { get; set; }
+
+        [Required(ErrorMessage = "First Name Required"), StringLength(30)]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "Last Name Required")]
-        [StringLength(30)]
+        [Required(ErrorMessage = "Last Name Required"), StringLength(30)]
         public string LastName { get; set; }
 
         [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "E-Mail Required")]
-        [StringLength(50)]
-        public string Email { get; set; }
+        public  string Email { get; set; }
 
-        [Required(ErrorMessage = "Password Required")]
+        [DataType(DataType.PhoneNumber)]
+        [Required(ErrorMessage = "Phone Number Required")]
+        public  string PhoneNumber { get; set; }
+
         [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Password Required")]
         [StringLength(50)]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name ="Confirm Password")]
-        [Compare("Password", ErrorMessage ="Passwords do not match.")]
+        [Display(Name = "Confirm Password")]
+        [Compare("Password", ErrorMessage = "Passwords do not match.")]
         [StringLength(50)]
         public string ConfirmPassword { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime SignUpDate { get; set; }
+        //public virtual ICollection<UserRole> UserRoles { get; set; }
 
-        public string PhoneNumber { get; set; }
-
-        public string Category { get; set; }
     }
 }

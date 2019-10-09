@@ -4,156 +4,22 @@ using KingPandaMedia.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace KingPandaMedia.Migrations
+namespace KingPandaMedia.Migrations.KingPandaMediaIdentityDb
 {
-    [DbContext(typeof(KingPandaMediaDbContext))]
-    partial class KingPandaMediaDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(KingPandaMediaIdentityDbContext))]
+    [Migration("20191003151448_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("KingPandaMedia.Models.Tables.Employee", b =>
-                {
-                    b.Property<int>("EmployeeID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
-
-                    b.Property<DateTime>("HiredDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("EmployeeID");
-
-                    b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("KingPandaMedia.Models.Tables.Order", b =>
-                {
-                    b.Property<int>("OrderID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderID");
-
-                    b.HasIndex("EmployeeID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("KingPandaMedia.Models.Tables.Portfolio", b =>
-                {
-                    b.Property<int>("ImageID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("EmployeeID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImageURL")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("MediaCategory")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ImageID");
-
-                    b.HasIndex("EmployeeID");
-
-                    b.ToTable("Portfolios");
-                });
-
-            modelBuilder.Entity("KingPandaMedia.Models.Tables.User", b =>
-                {
-                    b.Property<int>("UserID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConfirmPassword")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("SignUpDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("UserID");
-
-                    b.ToTable("Users");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -349,28 +215,6 @@ namespace KingPandaMedia.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("KingPandaMedia.Models.Tables.Order", b =>
-                {
-                    b.HasOne("KingPandaMedia.Models.Tables.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("KingPandaMedia.Models.Tables.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("KingPandaMedia.Models.Tables.Portfolio", b =>
-                {
-                    b.HasOne("KingPandaMedia.Models.Tables.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

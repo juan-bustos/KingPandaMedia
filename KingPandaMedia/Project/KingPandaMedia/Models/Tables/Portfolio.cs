@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KingPandaMedia.Models.Tables
@@ -15,6 +16,6 @@ namespace KingPandaMedia.Models.Tables
 
         [StringLength(100)]
         [Required(ErrorMessage = "Image Url Required"), DataType(DataType.ImageUrl)]
-        public string ImageURL { get; set; }
+        public IFormFile ImageURL { get; set; }
     }
 }

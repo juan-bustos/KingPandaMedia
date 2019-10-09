@@ -1,4 +1,5 @@
 ﻿using KingPandaMedia.Models.Tables;
+using Microsoft.AspNetCore.Identity;
 using System.Linq;
 
 namespace KingPandaMedia.Models.Interfaces
@@ -9,7 +10,7 @@ namespace KingPandaMedia.Models.Interfaces
     }
     public interface IUserRepository
     {
-        IQueryable<User> Users { get; }
+        IQueryable<KPMUser> KPMUsers { get; }
     }
     public interface IEmployeeRepository
     {

@@ -4,16 +4,16 @@ namespace KingPandaMedia.Models.ViewModels
 {
     public class LoginViewModel
     {
-        [DataType(DataType.EmailAddress)]
-        [Required(ErrorMessage = "E-Mail Required")]
-        [StringLength(50)]
+        [Required]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Password Required")]
-        [StringLength(50)]
+        [Required]
+        [UIHint("password")]
         public string Password { get; set; }
 
-        [Display(Name ="Remember login")]
-        public bool RememberLogin { get; set; }
+        public string ReturnUrl { get; set; } = "/";
+
+        public bool RememberMe { get; set; } = false;
+
     }
 }

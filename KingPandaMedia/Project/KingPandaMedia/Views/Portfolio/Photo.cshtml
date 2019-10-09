@@ -1,7 +1,39 @@
-﻿
+﻿@model KingPandaMedia.Models.Tables.Portfolio
+
 @{
     ViewData["Title"] = "Photo";
 }
 
-<h1>Photo</h1>
+<form enctype="multipart/form-data" method="post">
+    <div class="form-group row">
+        <strong><label asp-for="ImageURL" class="col-sm-2 col-form-label"></label></strong>
+        <div class="col-sm-10">
+            <div class="custom-file">
+                <input asp-for="ImageURL" type="file" class="form-control custom-file-input " multiple/>
+                <label class="custom-file-label">Choose File...</label>
+            </div>
+        </div>
+    </div>
+    @section Scripts{ 
+    <script>
+        $(document).ready(function(){
+            $('.custom-file-input').on("change", function(){
+                var fileName = $(this).val().split("\\").pop();
+                this.next('.custom-file-label').html(fileName);
+            })
+        });
+    </script>
+    }
+    <dl class="form-group">
+        <dt>
+            <label asp-for="ImageURL" class="col-sm-2 col-form-label"></label>
+        </dt>
+        <dd>
+            <input asp-for="ImageURL" type="file" class="btn" multiple />
+            <span asp-validation-for="ImageURL" class="btn-outline-primary"></span>
+        </dd>
+    </dl>
+    <input asp-page-handler="Upload" class="btn btn-outline-primary" type="submit" value="Upload" />
+</form>
+
 

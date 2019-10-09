@@ -34,6 +34,7 @@ namespace KingPandaMedia.Migrations
                     LastName = table.Column<string>(maxLength: 30, nullable: false),
                     Email = table.Column<string>(maxLength: 50, nullable: false),
                     Password = table.Column<string>(maxLength: 50, nullable: false),
+                    ConfirmPassword = table.Column<string>(maxLength: 50, nullable: true),
                     SignUpDate = table.Column<DateTime>(nullable: false),
                     PhoneNumber = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true)

@@ -1,7 +1,10 @@
 ﻿using System.Linq;
 using KingPandaMedia.Models.Tables;
 using KingPandaMedia.Models.Interfaces;
-
+using System;
+using System.Threading.Tasks;
+using System.Threading;
+using Microsoft.AspNetCore.Identity;
 
 namespace KingPandaMedia.Models.EFRepository
 {
@@ -12,6 +15,6 @@ namespace KingPandaMedia.Models.EFRepository
         {
             context = ctx;
         }
-        public IQueryable<User> Users => context.Users;
+        public IQueryable<KPMUser> KPMUsers => context.KPMUsers;
     }
 }

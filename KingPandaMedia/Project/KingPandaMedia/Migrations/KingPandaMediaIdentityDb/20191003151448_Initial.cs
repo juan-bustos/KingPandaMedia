@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace KingPandaMedia.Migrations
+namespace KingPandaMedia.Migrations.KingPandaMediaIdentityDb
 {
-    public partial class identity : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

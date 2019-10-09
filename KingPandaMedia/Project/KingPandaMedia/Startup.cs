@@ -18,7 +18,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using KingPandaMedia.Models;
 using KingPandaMedia.Models.Interfaces;
 using KingPandaMedia.Models.EFRepository;
-using KingPandaMedia.Migrations;
+using KingPandaMedia.Models.Tables;
 
 namespace KingPandaMedia
 {
@@ -34,15 +34,23 @@ namespace KingPandaMedia
         {
             services.AddControllers();
             services.AddRazorPages();
+
             services.AddDbContext<KingPandaMediaDbContext>(options => options.UseSqlServer(Configuration["Data:KingPandaMedia:ConnectionString"]));
+
+            services.AddDbContext<KingPandaMediaIdentityDbContext>(options => options.UseSqlServer(Configuration["Data:KingPandaMediaIdentity:ConnectionString"]));
+
+            services.AddIdentity<KPMUser, IdentityRole>(options => options.User.RequireUniqueEmail = true)
+                .AddEntityFrameworkStores<KingPandaMediaIdentityDbContext>()
+                .AddDefaultTokenProviders();
+
             services.AddTransient<IEmployeeRepository, EFEmployeeRepository>();
             services.AddTransient<IOrderRepository, EFOrderRepository>();
-            services.AddTransient<IPortfolioRepository, EFPortfolioRepository>();
+            services.AddTransient<IPortfolioRepository, EFPortfolioRepository>();            
             services.AddTransient<IUserRepository, EFUserRepository>();
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<KingPandaMediaDbContext>();
-            
+
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/Users/Login");
+
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -70,7 +78,7 @@ namespace KingPandaMedia
             app.UseRouting();
 
             app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -79,7 +87,9 @@ namespace KingPandaMedia
                 pattern:"{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-            SeedData.EnsurePopulated(app);
+            IdentitySeedData.EnsurePopulated(app);
+            //SeedData.EnsurePopulated(app);
+            
         }
     }
 }
