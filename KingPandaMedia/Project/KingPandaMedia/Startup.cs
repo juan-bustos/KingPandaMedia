@@ -72,9 +72,9 @@ namespace KingPandaMedia
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseStatusCodePages();
             }
-            app.UseStaticFiles();
-            app.UseStatusCodePages();
+            app.UseStaticFiles();            
             app.UseRouting();
 
             app.UseAuthentication();
@@ -87,7 +87,7 @@ namespace KingPandaMedia
                 pattern:"{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-            IdentitySeedData.EnsurePopulated(app);
+            //IdentitySeedData.EnsurePopulated(app);
             //SeedData.EnsurePopulated(app);
             
         }

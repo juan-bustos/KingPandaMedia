@@ -6,7 +6,7 @@ namespace KingPandaMedia.Models.EFRepository
 {
     public class EFPortfolioRepository : IPortfolioRepository
     {
-        private KingPandaMediaDbContext context;
+        private readonly KingPandaMediaDbContext context;
         public EFPortfolioRepository(KingPandaMediaDbContext ctx)
         {
             context = ctx;

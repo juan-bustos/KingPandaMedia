@@ -1,13 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using KingPandaMedia.Models.Tables;
 
-namespace KingPandaMedia.Models.Tables
+namespace KingPandaMedia.Models.ViewModels
 {
-    public class Portfolio
+    public class PhotoViewModel
     {
-        [Key]
         public int ImageID { get; set; }
 
         [ForeignKey("EmployeeID")]
@@ -16,5 +15,6 @@ namespace KingPandaMedia.Models.Tables
         public string MediaCategory { get; set; }
 
         public string ImageURL { get; set; }
+        public IEnumerable<Portfolio> Media { get; set; }
     }
 }

@@ -9,21 +9,21 @@ using System;
 
 namespace KingPandaMedia.Models
 {
-    public class SeedData
+    public static class SeedData
     {
-        public static void EnsurePopulated(IApplicationBuilder app)
+        public static void EnsurePopulated(IServiceProvider services)
         {
-            KingPandaMediaDbContext context = app.ApplicationServices.GetRequiredService<KingPandaMediaDbContext>();
-            context.Database.Migrate();
-            if (!context.Employees.Any())
-            {
-                context.Employees.AddRange(
-                new Employee { FirstName = "Juan", LastName = "Bustos", Email = "juan.c.bustos@outlook.com", Password = "aPassW0rD"},
-                new Employee { FirstName = "Jesus", LastName = "McCloud", Email = "jesus.mccloud@gmail.com", Password = "aPassW0rD"},
-                new Employee { FirstName = "Danny", LastName = "Auvert", Email = "danny.auvert@hotmail.com", Password = "1234UsMaR1n3C0rPs"});
+            KingPandaMediaDbContext context = services.GetRequiredService<KingPandaMediaDbContext>();
+            //context.Database.Migrate();
+            //if (!context.Employees.Any())
+            //{
+            //    context.Employees.AddRange(
+            //    new Employee { FirstName = "Juan", LastName = "Bustos", Email = "juan.c.bustos@outlook.com", Password = "aPassW0rD"},
+            //    new Employee { FirstName = "Jesus", LastName = "McCloud", Email = "jesus.mccloud@gmail.com", Password = "aPassW0rD"},
+            //    new Employee { FirstName = "Danny", LastName = "Auvert", Email = "danny.auvert@hotmail.com", Password = "1234UsMaR1n3C0rPs"});
 
-            }
-            context.SaveChanges();
+            //}
+            //context.SaveChanges();
 
             //context.Database.Migrate();
             //if (!context.Users.Any())
@@ -35,15 +35,15 @@ namespace KingPandaMedia.Models
             //}
             //context.SaveChanges();
 
-            context.Database.Migrate();
-            if (!context.Orders.Any())
-            {
-                context.Orders.AddRange(
-                new Order { EmployeeID = 1, UserID = 2, Category = "Platinum", Price = 350M},
-                new Order { EmployeeID = 2, UserID = 3, Category = "Basic", Price = 50M },
-                new Order { EmployeeID = 3, UserID = 1, Category = "Premium", Price = 250M});
-            }
-            context.SaveChanges();
+            //context.Database.Migrate();
+            //if (!context.Orders.Any())
+            //{
+            //    context.Orders.AddRange(
+            //    new Order { EmployeeID = 1, UserID = 2, Category = "Platinum", Price = 350M},
+            //    new Order { EmployeeID = 2, UserID = 3, Category = "Basic", Price = 50M },
+            //    new Order { EmployeeID = 3, UserID = 1, Category = "Premium", Price = 250M});
+            //}
+            //context.SaveChanges();
 
             //context.Database.Migrate();
             //if (!context.Portfolios.Any())

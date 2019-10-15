@@ -6,6 +6,7 @@ namespace KingPandaMedia.Models.ViewModels
     {
         [Required]
         public string Email { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [UIHint("password")]

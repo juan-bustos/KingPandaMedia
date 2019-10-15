@@ -3,8 +3,8 @@
     ViewData["Title"] = "Register";
 }
     <body>
-        <h1>Register</h1>
-        <div class="row">
+        <h1 class="container">Register</h1>
+        <div class="row; container">
             <div class="col-md-12">
                 <form method="post">
                     <div asp-validation-summary="All" class="text-danger"></div>
@@ -48,9 +48,6 @@
                 </form>
             </div>
         </div>
-        <partial>
-            @Html.Partial("LoginPartial")
-        </partial>
     </body>
 
 

@@ -13,7 +13,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace KingPandaMedia.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<KPMUser> userManager;
@@ -51,15 +50,14 @@ namespace KingPandaMedia.Controllers
             return View(registerViewModel);
         }
         [AllowAnonymous]
-        public IActionResult Login(string returnUrl)
+        public IActionResult Login()
         {
-            ViewBag.returnUrl = returnUrl;
-            return RedirectToAction("index", "home");
+            return View();
         }
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel loginView, string returnUrl)
+        public async Task<IActionResult> Login(LoginViewModel loginView)
         {
             if (ModelState.IsValid)
             {
@@ -75,7 +73,13 @@ namespace KingPandaMedia.Controllers
                     ModelState.AddModelError(nameof(LoginViewModel.Email), "Invalid user or password");
                 }
             }
-            return View(loginView);
+            return View();
+        }
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await signIn.SignOutAsync();
+            return RedirectToAction("register", "account");
         }
         [AllowAnonymous]
         public IActionResult FacebookLogin(string returnUrl)

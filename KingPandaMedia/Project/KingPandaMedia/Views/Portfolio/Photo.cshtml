@@ -4,7 +4,7 @@
     ViewData["Title"] = "Photo";
 }
 
-<form enctype="multipart/form-data" method="post">
+<form enctype="multipart/form-data" method="post" asp-action="Create" asp-controller="Portfolio">
     <div class="form-group row">
         <strong><label asp-for="ImageURL" class="col-sm-2 col-form-label"></label></strong>
         <div class="col-sm-10">
@@ -14,26 +14,18 @@
             </div>
         </div>
     </div>
-    @section Scripts{ 
+    @section scripts{ 
     <script>
-        $(document).ready(function(){
-            $('.custom-file-input').on("change", function(){
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
                 var fileName = $(this).val().split("\\").pop();
-                this.next('.custom-file-label').html(fileName);
+                $(this).next('.custom-file-label').html(fileName)
             })
         });
     </script>
     }
-    <dl class="form-group">
-        <dt>
-            <label asp-for="ImageURL" class="col-sm-2 col-form-label"></label>
-        </dt>
-        <dd>
-            <input asp-for="ImageURL" type="file" class="btn" multiple />
-            <span asp-validation-for="ImageURL" class="btn-outline-primary"></span>
-        </dd>
-    </dl>
-    <input asp-page-handler="Upload" class="btn btn-outline-primary" type="submit" value="Upload" />
+    <input asp-page-handler="Create" class="btn btn-outline-primary" type="submit" value="Upload" />
 </form>
-
-
+@*<body>
+    <img class="img-fluid" src="~/images/@Model.ImageURL" />
+</body>*@
