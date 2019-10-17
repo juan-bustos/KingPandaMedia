@@ -1,5 +1,4 @@
 ﻿@model KingPandaMedia.Models.ViewModels.PhotoViewModel
-
 @{
     ViewData["Title"] = "Photo";
 }
@@ -28,14 +27,10 @@
 </form>
 
 <body>
-    <div style="background-color: #0e0e0e">
+    <div style="background-color: #0e0e0e">     
         @foreach (var photo in Model.Photo)
         {
-            @*<img class="img-fluid" src="~/images/@Model.ImageURL" />*@
-            <div>
-                @Model.ImageURL
-            </div>
+            <img class="img-fluid" src="https://kingpandamediastorage.blob.core.windows.net/kpmphotos/@photo.ImageURL" />
         }
-        <img class="img-fluid" src="~/images/64687c50-2c79-40a6-b231-acc8adb24d80.jpg" />
     </div>
 </body>

@@ -50,24 +50,12 @@ namespace KingPandaMedia.Controllers
                 bool uploadSuccess = false;
                 string uploadedUri = null;
                 if (file.Count != 0)
-                {
-                    //string imgPath = "wwwroot/images/";
+                {                    
                     string imgName = Guid.NewGuid().ToString();
-                    string extension = "";
-                    for (int i = file[0].FileName.Length - 1; i > 0; i--)
-                    {
-                        extension = file[0].FileName[i].ToString() + extension;
-                        if (file[0].FileName[i] == '.') break;
-                    }
-
-                    //string fullpath = imgPath + imgName + extension;
+                    string extension = Path.GetExtension(file[0].FileName);                
                     if (extension == ".jpg" || extension == ".gif" || extension == ".webm" || extension == ".jpeg" || extension == ".png")
                     {
-                        //    using (var fileStream = new FileStream(fullpath, FileMode.Create))
-                        //    {
-                        //        file[0].CopyTo(fileStream);
-                        //    }
-                        //    mediaFile.ImageURL = imgName + extension;                    
+                        extension = extension.Substring(1);
                         mediaFile.ImageURL = imgName + '.' + extension;
                         using (var stream = file[0].OpenReadStream())
                         {
@@ -97,7 +85,7 @@ namespace KingPandaMedia.Controllers
                 {
                     CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
-                    cloudBlobContainer = cloudBlobClient.GetContainerReference("images");
+                    cloudBlobContainer = cloudBlobClient.GetContainerReference("kpmphotos");
 
                     BlobContainerPermissions permissions = new BlobContainerPermissions
                     {
