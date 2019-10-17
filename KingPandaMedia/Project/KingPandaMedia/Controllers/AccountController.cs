@@ -103,10 +103,9 @@ namespace KingPandaMedia.Controllers
             }
             else
             {
-                KPMUser user = new KPMUser
+                var user = new KPMUser
                 {
                     Email = info.Principal.FindFirst(ClaimTypes.Email).Value,
-                    //FirstName = info.Principal.FindFirst(ClaimTypes.GivenName).Value,
                     PhoneNumber = info.Principal.FindFirst(ClaimTypes.HomePhone).Value
                 };
                 IdentityResult identityResult = await userManager.CreateAsync(user);

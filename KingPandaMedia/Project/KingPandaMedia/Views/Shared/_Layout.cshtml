@@ -1,5 +1,4 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@model KingPandaMedia.Models.ViewModels.LoginViewModel
 @inject SignInManager<KPMUser> SignInManager
 
 <!DOCTYPE html>
@@ -52,7 +51,7 @@
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <a class="nav-link"> HELLO @User.Identity.Name!</a>
+                                <a class="nav-link">HELLO @User.Identity.Name!</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">

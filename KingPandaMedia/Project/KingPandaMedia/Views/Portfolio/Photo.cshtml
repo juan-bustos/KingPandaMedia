@@ -1,4 +1,4 @@
-﻿@model KingPandaMedia.Models.Tables.Portfolio
+﻿@model KingPandaMedia.Models.ViewModels.PhotoViewModel
 
 @{
     ViewData["Title"] = "Photo";
@@ -26,6 +26,16 @@
     }
     <input asp-page-handler="Create" class="btn btn-outline-primary" type="submit" value="Upload" />
 </form>
-@*<body>
-    <img class="img-fluid" src="~/images/@Model.ImageURL" />
-</body>*@
+
+<body>
+    <div style="background-color: #0e0e0e">
+        @foreach (var photo in Model.Photo)
+        {
+            @*<img class="img-fluid" src="~/images/@Model.ImageURL" />*@
+            <div>
+                @Model.ImageURL
+            </div>
+        }
+        <img class="img-fluid" src="~/images/64687c50-2c79-40a6-b231-acc8adb24d80.jpg" />
+    </div>
+</body>

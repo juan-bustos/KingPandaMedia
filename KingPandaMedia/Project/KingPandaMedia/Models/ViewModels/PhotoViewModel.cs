@@ -5,16 +5,8 @@ using KingPandaMedia.Models.Tables;
 
 namespace KingPandaMedia.Models.ViewModels
 {
-    public class PhotoViewModel
+    public class PhotoViewModel : Portfolio
     {
-        public int ImageID { get; set; }
-
-        [ForeignKey("EmployeeID")]
-        public virtual Employee Employee { get; set; }
-
-        public string MediaCategory { get; set; }
-
-        public string ImageURL { get; set; }
-        public IEnumerable<Portfolio> Media { get; set; }
+        public IEnumerable<Portfolio> Photo { get; set; }
     }
 }

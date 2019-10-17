@@ -55,17 +55,17 @@ namespace KingPandaMedia
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
-                .AddCookie()
-                .AddFacebook(facebookOptions =>
-                {
-                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-                facebookOptions.Events.OnRemoteFailure = (context) =>
-                {
-                    context.HandleResponse();
-                    return context.Response.WriteAsync("<script>Window.close();</script>");
-                };
-                });
+                .AddCookie();
+                //.AddFacebook(facebookOptions =>
+                //{
+                //facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                //facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                //facebookOptions.Events.OnRemoteFailure = (context) =>
+                //{
+                //    context.HandleResponse();
+                //    return context.Response.WriteAsync("<script>Window.close();</script>");
+                //};
+                //});
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
