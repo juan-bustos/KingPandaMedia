@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using KingPandaMedia.Models.Tables;
 using KingPandaMedia.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
-using System.ComponentModel.DataAnnotations;
+
 
 namespace KingPandaMedia.Controllers
 {
@@ -35,11 +31,11 @@ namespace KingPandaMedia.Controllers
         {
             if (ModelState.IsValid)
             {
-                KPMUser user = new KPMUser { UserName = registerViewModel.UserName, Email = registerViewModel.Email, /*FirstName = registerViewModel.FirstName, LastName = registerViewModel.LastName,*/ PhoneNumber = registerViewModel.PhoneNumber };
+                KPMUser user = new KPMUser { UserName = registerViewModel.UserName, Email = registerViewModel.Email, FirstName = registerViewModel.FirstName, LastName = registerViewModel.LastName, PhoneNumber = registerViewModel.PhoneNumber };
                 IdentityResult result = await userManager.CreateAsync(user, registerViewModel.Password);
                 if (result.Succeeded)
                 {
-                    //await signIn.SignInAsync(user, isPersistent: false);
+                    await signIn.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("index", "home");
                 }
                 foreach (IdentityError error in result.Errors)

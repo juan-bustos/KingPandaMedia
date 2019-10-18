@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
+
 
 namespace KingPandaMedia.Models.ViewModels
 {
     public class RegisterViewModel
     {
-        [Key]
-        public int UserID { get; set; }
-
         [Required(ErrorMessage = " Enter a username"), StringLength(20)]
         public  string UserName { get; set; }
 
@@ -44,7 +37,5 @@ namespace KingPandaMedia.Models.ViewModels
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime SignUpDate { get; set; }
-        //public virtual ICollection<UserRole> UserRoles { get; set; }
-
     }
 }

@@ -1,10 +1,7 @@
 ﻿using System.Linq;
 using KingPandaMedia.Models.Tables;
 using KingPandaMedia.Models.Interfaces;
-using System;
-using System.Threading.Tasks;
-using System.Threading;
-using Microsoft.AspNetCore.Identity;
+
 
 namespace KingPandaMedia.Models.EFRepository
 {
