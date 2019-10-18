@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h3>An error occured while processing your request. Our team is working to fix it for you.</h3>
+<h5>Please contact us at kingpandamedia@gmail.com</h5>
+<hr />
+<h3>Exception Details: </h3>
+<div class="alert alert-danger">
+    <h4>Exception Path</h4>
+    <hr />
+    <p>@ViewBag.ExceptionPath</p>
+</div>
+
+<div class="alert alert-danger">
+    <h4>Exception Message</h4>
+    <hr />
+    <p>@ViewBag.ExceptionMessage</p>
+</div>
+
+<div class="alert alert-danger">
+    <h4>Stack Trace</h4>
+    <hr />
+    <p>@ViewBag.Stacktrace</p>
+</div>

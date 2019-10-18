@@ -32,6 +32,7 @@ namespace KingPandaMedia.Controllers
             return View();
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Photo()
         {
             return View(
@@ -39,7 +40,8 @@ namespace KingPandaMedia.Controllers
                 {
                     Photo = portfolioRepository.Portfolios
                 });
-        }        
+        }
+        [Authorize(Roles = "Team Member")]
         [HttpPost]
         public async Task<IActionResult> Photo(PhotoViewModel mediaFile)
         {

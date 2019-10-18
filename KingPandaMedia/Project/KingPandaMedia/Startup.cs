@@ -74,6 +74,11 @@ namespace KingPandaMedia
                 app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
+            }
             app.UseStaticFiles();            
             app.UseRouting();
 

@@ -31,7 +31,7 @@ namespace KingPandaMedia.Controllers
         {
             if (ModelState.IsValid)
             {
-                KPMUser user = new KPMUser { UserName = registerViewModel.UserName, Email = registerViewModel.Email, FirstName = registerViewModel.FirstName, LastName = registerViewModel.LastName, PhoneNumber = registerViewModel.PhoneNumber };
+                var user = new KPMUser { UserName = registerViewModel.UserName, Email = registerViewModel.Email, FirstName = registerViewModel.FirstName, LastName = registerViewModel.LastName, PhoneNumber = registerViewModel.PhoneNumber };
                 IdentityResult result = await userManager.CreateAsync(user, registerViewModel.Password);
                 if (result.Succeeded)
                 {
