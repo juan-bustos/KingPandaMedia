@@ -126,6 +126,50 @@ namespace KingPandaMedia.Controllers
             }
         }
         [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Video()
+        {
+            return View(
+                new VideoViewModel
+                {
+                    Video = portfolioRepository.Portfolios
+                });
+        }
+        [Authorize(Roles = "Team Member")]
+        [HttpPost]
+        public async Task<IActionResult> Video(VideoViewModel mediaFile)
+        {
+
+            if (mediaFile != null)
+            {
+                var file = HttpContext.Request.Form.Files;
+                bool uploadSuccess = false;
+                string uploadedUri = null;
+                if (file.Count != 0)
+                {
+                    string imgName = Guid.NewGuid().ToString();
+                    string extension = Path.GetExtension(file[0].FileName).ToLower();
+                    if (extension == ".jpg" || extension == ".gif" || extension == ".webm" || extension == ".jpeg" || extension == ".png")
+                    {
+                        extension = extension.Substring(1);
+                        mediaFile.ImageURL = imgName + '.' + extension;
+                        using (var stream = file[0].OpenReadStream())
+                        {
+                            (uploadSuccess, uploadedUri) = await UploadToBlob(mediaFile.ImageURL, stream, extension);
+                            TempData["uploadedUri"] = uploadedUri;
+                        }
+                    }
+                    else
+                    {
+                        mediaFile.ImageURL = null;
+                    }
+                }
+                mediaDbContext.Portfolios.Add(mediaFile);
+                mediaDbContext.SaveChanges();
+            }
+            return RedirectToAction("video", "portfolio");
+        }
+        [HttpGet]
         public IActionResult Media()
         {
             return View();

@@ -1,7 +1,38 @@
-﻿
+﻿@model KingPandaMedia.Models.ViewModels.VideoViewModel
 @{
     ViewData["Title"] = "Video";
 }
 
-<h1>Video</h1>
-
+@if (User.IsInRole("Team Member"))
+{
+    <form enctype="multipart/form-data" method="post" asp-action="Videohfadhsfa sdlk" asp-controller="Portfolio">
+        <div class="form-group row">
+            <strong><label asp-for="ImageURL" class="col-sm-2 col-form-label"></label></strong>
+            <div class="col-sm-10">
+                <div class="custom-file">
+                    <input asp-for="ImageURL" type="file" class="form-control custom-file-input " multiple />
+                    <label class="custom-file-label">Choose File...</label>
+                </div>
+            </div>
+        </div>
+        @section scripts{
+            <script>
+                $(document).ready(function () {
+                    $('.custom-file-input').on("change", function () {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).next('.custom-file-label').html(fileName)
+                    })
+                });
+            </script>
+        }
+        <input asp-page-handler="Create" class="btn btn-outline-primary" type="submit" value="Upload" />
+    </form>
+}
+<body>
+    <div style="background-color: #0e0e0e">
+        @foreach (var video in Model.Video)
+        {
+            <img class="img-fluid" src="https://kingpandamediastorage.blob.core.windows.net/kpmvideos/@video.ImageURL" />
+        }
+    </div>
+</body>

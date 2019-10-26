@@ -7,7 +7,7 @@ namespace KingPandaMedia.Models.EFRepository
 {
     public class EFUserRepository : IUserRepository
     {
-        private KingPandaMediaDbContext context;
+        private readonly KingPandaMediaDbContext context;
         public EFUserRepository(KingPandaMediaDbContext ctx)
         {
             context = ctx;
