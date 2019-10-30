@@ -1,0 +1,25 @@
+﻿@model KingPandaMedia.Models.ViewModels.LoginViewModel
+
+
+<body>
+    <div class="container row mb-3">
+        <div class="col-4">
+            <form asp-action="Login" method="post">
+                <h1 class="p-0">Login</h1>
+                <div class="text-danger" asp-validation-summary="All"></div>
+                <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <button class="btn btn-primary" type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+</body>

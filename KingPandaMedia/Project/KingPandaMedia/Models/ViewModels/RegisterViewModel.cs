@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using KingPandaMedia.Models.ViewModels;
 
 
 namespace KingPandaMedia.Models.ViewModels
@@ -42,5 +43,7 @@ namespace KingPandaMedia.Models.ViewModels
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime SignUpDate { get; set; }
+
+        public LoginViewModel LoginViewModel { get; set; }
     }
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>@ViewData["Title"] - King Panda Media</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
@@ -19,13 +19,14 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-nav navbar-expand-md navbar-light" style="background-color: white">
-            <div class="container-fluid ml-auto">
+        <nav class="navbar navbar-nav navbar-expand-md navbar-light container-fluid" style="background-color: white">
+            <div class=" container-fluid ml-auto">
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><img src="~/media/website resources/graphics/KPM-Logo-NavBar.png" width="137" height="70" class="d-inline-block align-top" alt="KPM Logo" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
+
             <div class="mr-auto">
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav">
@@ -80,17 +81,19 @@
             </div>
         </nav>
     </header>
-          
-    <div class="container-fluid align-content-center mb-2">
-            @RenderBody()
-    </div>
-    @if (IsSectionDefined("scripts"))
-    {
+
+    <div class="container-fluid">
+        @RenderBody()
+
+        @if (IsSectionDefined("scripts"))
+        {
         @RenderSection("scripts", required: false)
-    }
+        }
+    </div>
+
 </body>
 </html>
 
-<footer style="background-color:#090909" class="container-fluid" id="footer">
-    <h6 style="text-align:center; color: white; padding:20px"><strong>&copy; 2019 - KING PANDA MEDIA</strong></h6>
+<footer class="jumbotron-fluid p-0" style="background-color:#090909">
+    <h4 class="text-center text-white m-0 p-4"><strong>&copy; 2019 - KING PANDA MEDIA</strong></h4>
 </footer>

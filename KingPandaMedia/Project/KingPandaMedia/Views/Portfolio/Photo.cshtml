@@ -3,18 +3,11 @@
     ViewData["Title"] = "Photo";
 }
 
-@if (User.IsInRole("Team Member"))
-{
-    <form enctype="multipart/form-data" method="post" asp-action="Create" asp-controller="Portfolio">
-        <div class="form-group row">
-            <strong><label asp-for="ImageURL" class="col-sm-2 col-form-label"></label></strong>
-            <div class="col-sm-10">
-                <div class="custom-file">
-                    <input asp-for="ImageURL" type="file" class="form-control custom-file-input " multiple />
-                    <label class="custom-file-label">Choose File...</label>
-                </div>
-            </div>
-        </div>
+
+<body style="background-color: #0e0e0e">
+    <div class="text-white pt-2">
+        @if (User.IsInRole("Team Member"))
+        {
         @section scripts{
             <script>
                 $(document).ready(function () {
@@ -25,14 +18,30 @@
                 });
             </script>
         }
-        <input asp-page-handler="Create" class="btn btn-outline-primary" type="submit" value="Upload" />
-    </form>
-}
-<body>
-    <div style="background-color: #0e0e0e">
+        <div class="row">
+            <strong class="text-center">
+                <label asp-for="ImageURL"></label>
+            </strong>
+            <form enctype="multipart/form-data" method="post" asp-action="Create" asp-controller="Portfolio">
+                <div class="custom-file m-0">
+                    <input asp-for="ImageURL" type="file" class="form-control custom-file-input col-sm-9" multiple />
+                    <label class="custom-file-label col-sm-6 border-0">Choose File...</label>
+                </div>
+                <span class="col-sm-3">
+                    <input asp-page-handler="Create" class="btn btn-light" type="submit" value="Upload" />
+                </span>
+            </form>
+        </div>
+        }
+    </div>
+
+    <div class="row">
         @foreach (var photo in Model.Photo)
         {
-            <img class="img-fluid" src="https://kingpandamediastorage.blob.core.windows.net/kpmphotos/@photo.ImageURL" />
+
+        <img class="img-fluid" style="max-height:inherit" src="https://kingpandamediastorage.blob.core.windows.net/kpmphotos/@photo.ImageURL" />
+
+
         }
     </div>
 </body>
