@@ -10,7 +10,6 @@ namespace KingPandaMedia.Models
         {
 
         }
-        public DbSet<Employee> Employees { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Portfolio> Portfolios { get; set; }
         public DbSet<KPMUser> KPMUsers { get; set; }

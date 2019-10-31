@@ -21,6 +21,6 @@ namespace KingPandaMedia.Models.Tables
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime SignUpDate { get; set; }
+        public DateTime SignUpDate { get; set; } = DateTime.UtcNow;
     }
 }

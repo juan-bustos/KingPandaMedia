@@ -42,7 +42,6 @@ namespace KingPandaMedia
                 .AddEntityFrameworkStores<KingPandaMediaIdentityDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddTransient<IEmployeeRepository, EFEmployeeRepository>();
             services.AddTransient<IOrderRepository, EFOrderRepository>();
             services.AddTransient<IPortfolioRepository, EFPortfolioRepository>();            
             services.AddTransient<IUserRepository, EFUserRepository>();

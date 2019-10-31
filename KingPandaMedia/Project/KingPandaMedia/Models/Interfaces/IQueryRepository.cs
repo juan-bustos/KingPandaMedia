@@ -12,10 +12,6 @@ namespace KingPandaMedia.Models.Interfaces
     {
         IQueryable<KPMUser> KPMUsers { get; }
     }
-    public interface IEmployeeRepository
-    {
-        IQueryable<Employee> Employees { get; }
-    }
     public interface IOrderRepository
     {
         IQueryable<Order> Orders { get; }

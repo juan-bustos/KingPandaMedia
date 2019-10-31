@@ -11,7 +11,7 @@ namespace KingPandaMedia.Models.Tables
         public int ImageID { get; set; }
 
         [ForeignKey("EmployeeID")]
-        public virtual Employee Employee { get; set; }
+        public virtual KPMUser User { get; set; }
 
         public string MediaCategory { get; set; }
 

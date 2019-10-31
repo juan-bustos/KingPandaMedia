@@ -9,12 +9,7 @@ namespace KingPandaMedia.Models.Tables
         [Key]
         public int OrderID { get; set; }
 
-        [ForeignKey("Employee")]
-        public int EmployeeID { get; set; }
-        public virtual Employee Employee { get; set; }
-
-        [ForeignKey("Users")]
-        public int UserID { get; set; }
+        [ForeignKey("Id")]
         public virtual KPMUser User { get; set; }
 
         public string Category { get; set; }
@@ -24,6 +19,6 @@ namespace KingPandaMedia.Models.Tables
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime OrderDate { get; set; }
+        public DateTime OrderDate { get; set; } = DateTime.UtcNow;
     }
 }

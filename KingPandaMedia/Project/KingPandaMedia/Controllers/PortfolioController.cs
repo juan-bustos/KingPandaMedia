@@ -59,11 +59,9 @@ namespace KingPandaMedia.Controllers
                     {
                         extension = extension.Substring(1);
                         mediaFile.ImageURL = imgName + '.' + extension;
-                        using (var stream = file[0].OpenReadStream())
-                        {
-                            (uploadSuccess, uploadedUri) = await UploadToBlob(mediaFile.ImageURL, stream, extension);
-                            TempData["uploadedUri"] = uploadedUri;
-                        }
+                        using var stream = file[0].OpenReadStream();
+                        (uploadSuccess, uploadedUri) = await UploadToBlob(mediaFile.ImageURL, stream, extension);
+                        TempData["uploadedUri"] = uploadedUri;
                     }
                     else
                     {
@@ -77,18 +75,14 @@ namespace KingPandaMedia.Controllers
         }
         private async Task<(bool, string)> UploadToBlob(string filename, Stream stream = null, string extension = "")
         {
-            CloudStorageAccount storageAccount = null;
-            CloudBlobContainer cloudBlobContainer = null;
-
             string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=kingpandamediastorage;AccountKey=B61W9AiqiLOEMEkqS6LYrf1GqS/OVR3e52jhuaGcjOElxcYnJZji8064cf7O6zuaXsR+9ZdbwEWxkKYgDDldRw==;EndpointSuffix=core.windows.net";
-            if (CloudStorageAccount.TryParse(ConnectionString, out storageAccount))
+            if (CloudStorageAccount.TryParse(ConnectionString, out CloudStorageAccount storageAccount))
             {
                 try
                 {
                     CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
-                    cloudBlobContainer = cloudBlobClient.GetContainerReference("kpmphotos");
-
+                    CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("kpmedia");
                     BlobContainerPermissions permissions = new BlobContainerPermissions
                     {
                         PublicAccess = BlobContainerPublicAccessType.Blob
@@ -114,7 +108,7 @@ namespace KingPandaMedia.Controllers
                         return (false, null);
                     }
                     return (true, cloudBlockBlob.SnapshotQualifiedStorageUri.PrimaryUri.ToString());
-                }             
+                }
                 catch (StorageException)
                 {
                     return (false, null);
@@ -153,11 +147,9 @@ namespace KingPandaMedia.Controllers
                     {
                         extension = extension.Substring(1);
                         mediaFile.ImageURL = imgName + '.' + extension;
-                        using (var stream = file[0].OpenReadStream())
-                        {
-                            (uploadSuccess, uploadedUri) = await UploadToBlob(mediaFile.ImageURL, stream, extension);
-                            TempData["uploadedUri"] = uploadedUri;
-                        }
+                        using var stream = file[0].OpenReadStream();
+                        (uploadSuccess, uploadedUri) = await UploadToBlob(mediaFile.ImageURL, stream, extension);
+                        TempData["uploadedUri"] = uploadedUri;
                     }
                     else
                     {

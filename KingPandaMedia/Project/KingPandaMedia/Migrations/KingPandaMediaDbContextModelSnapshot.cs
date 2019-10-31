@@ -19,41 +19,6 @@ namespace KingPandaMedia.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("KingPandaMedia.Models.Tables.Employee", b =>
-                {
-                    b.Property<int>("EmployeeID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
-
-                    b.Property<DateTime>("HiredDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("EmployeeID");
-
-                    b.ToTable("Employees");
-                });
-
             modelBuilder.Entity("KingPandaMedia.Models.Tables.KPMUser", b =>
                 {
                     b.Property<string>("Id")
@@ -130,8 +95,8 @@ namespace KingPandaMedia.Migrations
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
@@ -139,17 +104,9 @@ namespace KingPandaMedia.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("OrderID");
 
-                    b.HasIndex("EmployeeID");
-
-                    b.HasIndex("UserId");
+                    b.HasIndex("Id");
 
                     b.ToTable("Orders");
                 });
@@ -161,8 +118,8 @@ namespace KingPandaMedia.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("EmployeeID")
-                        .HasColumnType("int");
+                    b.Property<string>("EmployeeID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
@@ -179,20 +136,14 @@ namespace KingPandaMedia.Migrations
 
             modelBuilder.Entity("KingPandaMedia.Models.Tables.Order", b =>
                 {
-                    b.HasOne("KingPandaMedia.Models.Tables.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("KingPandaMedia.Models.Tables.KPMUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("Id");
                 });
 
             modelBuilder.Entity("KingPandaMedia.Models.Tables.Portfolio", b =>
                 {
-                    b.HasOne("KingPandaMedia.Models.Tables.Employee", "Employee")
+                    b.HasOne("KingPandaMedia.Models.Tables.KPMUser", "User")
                         .WithMany()
                         .HasForeignKey("EmployeeID");
                 });
