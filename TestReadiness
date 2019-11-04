@@ -1,1 +1,13 @@
-
+| TEST ID| TEST CASE | REQUIREMENTS DESCRIPTION | STATUS |
+| --- | --- | --- | --- |
+| 1 | Account Creation | Customers and Team members need to create an account. | Not Implemented |
+| 1.1 | Account Validation | System needs to validate proper authentication of user/account | Not Implemented |
+| 1.2 | Account Filtering | System should be able to distinguish from admin users and regular users | Not Implemented |
+| 2 | Site Creation | Complete website is created with functioning navigation, imagery, and other features | In Progress |
+| 2.1 | Index Creation | Index has all features included from UI design | Implemented |
+| 2.2 | Portfolio Creation | Portfolio page includes subsections for "Photo", "Video", and "Other" media | In Progress |
+| 2.2.1 | Portfolio Creation | Portfolio products are able to be changed by Team Members | In Progress |
+| 2.3 | Contact Creation | Contact Page has all features from Contact UI design | Not Implemented |
+| 2.3.1 | Contact Creation | Contact Page allows members to upload/create their own products | Not Implemented |
+| 2.4 | Quote Creation | Quote Button brings a drop down form to allow users to see an estimate of services | Not Implemented |
+| 3 | Invoice Calculator | A calculator that allows users to see an estimate of services | Not Implemented |
