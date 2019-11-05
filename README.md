@@ -209,18 +209,65 @@ VALUES
 
 # TEST REPORT
 
-| TEST ID| TEST CASE | REQUIREMENTS DESCRIPTION | STATUS |
+# REQUIREMENTS 
+| REQUIREMENTS ID| REQUIREMENT NAME| REQUIREMENTS DESCRIPTION| TESTING METHOD|
 | --- | --- | --- | --- |
-| 1 | Account Creation | Customers and Team members need to create an account. | Not Implemented |
-| 1.1 | Account Validation | System needs to validate proper authentication of user/account | Not Implemented |
-| 1.2 | Account Filtering | System should be able to distinguish from admin users and regular users | Not Implemented |
-| 2 | Site Creation | Complete website is created with functioning navigation, imagery, and other features | In Progress |
-| 2.1 | Index Creation | Index has all features included from UI design | Implemented |
-| 2.2 | Portfolio Creation | Portfolio page includes subsections for "Photo", "Video", and "Other" media | In Progress |
-| 2.2.1 | Portfolio Creation | Portfolio products are able to be changed by Team Members | In Progress |
-| 2.3 | Contact Creation | Contact Page has all features from Contact UI design | Not Implemented |
-| 2.3.1 | Contact Creation | Contact Page allows members to upload/create their own products | Not Implemented |
-| 2.4 | Quote Creation | Quote Button brings a drop down form to allow users to see an estimate of services | Not Implemented |
-| 3 | Invoice Calculator | A calculator that allows users to see an estimate of services | Not Implemented |
+| 1 | Create Users | System shall allow users to be created | Inspection |
+| 1.1 | User Forms | System shall allow users to input personal information for creating account | Inspection |
+| 1.2 | Authenticate Forms | System shall ensure that form is filled out correctly | Inspection |
+| 1.3 | Third-Party Authentication | System shall allow for third party authentication | Inspection |
+| 2 | Authenticate User | System shall ensure that user is created successfully | Inspection |
+| 3 | Login Users | System shall login users through e-mail and password | Inspection |
+| 4 | Upload Media | System shall allow Team Member users to upload media | Inspection |
+| 5 | Display Media | System shall show media that is uploaded | Inspection |
+| 6 |  Delete Users | System shall allow admin to delete users | Inspection |
+| 7 |  Edit User Roles | System shall allow admin to edit user roles as needed | Inspection |
+| 8 |  Add User Roles | System shall allow admin to add user roles as needed | Inspection |
+| 9 | Delete User Roles | System shall allow admin to delete user roles as needed | Inspection |
+| 10 | Delete Uploaded Media | System shall allow admin / team users to delete uploaded media | Inspection |
+| 11 | Admin Controls | System shall allow admin user to moderate web page | Inspection |
+
+# TESTING
+### Entrance Criteria 
+| TEST DESCRIPTION| TEST STEPS | EXPECTED RESULTS | REQUIREMENT | PASS/FAIL |
+| --- | --- | --- | --- | --- |
+| User fills out form and registers account | 1. Go to Register Page <BR/> 2. Fill out form <BR/> 3. Click Register | User is created and redirected to Home Page | 1, 1.1, 1.2, 2 | PASS |
+| User logs in with existing account | 1. Go to website <BR /> 2. Click Login <BR /> 3. Enter User Information <BR /> 4. Click Log In Button at the end of form | User is logged in, redirected to Home Page, and Navbar changes to show a welcome message, and logout option. | 2, 3 | PASS |
+| Team Member User is able to upload media. | 1. Go to a portfolio page <BR /> 2. If user is in correct role they will see a upload files button. <BR /> 3. Click "browse" <BR /> 4. Select an image <BR /> 5. Click Upload | User will be able to select a media file and after clicking upload will be redirected to the same page with their media uploaded. | 4, 5 | PASS |
+| Admin Controls | 1. Admin User Logs in <BR /> 2. Click the Admin button <BR /> 3. Admin page displays <BR /> 4. Series of buttons will show to create roles, view roles, delete users, delete media | Admin view will show along with buttons redirecting to all of the different admin controls. | 6,8,9,10 | PASS |
+
+### Requirements Traceability
+| ID| Create Users | Authenticate Users | Upload Media | CRUD Operations |
+| --- | --- | --- | --- | --- |
+|1| PASS |
+|1.1| PASS
+|1.2| PASS
+|2| PASS | PASS
+|3| | PASS
+|4| | | PASS
+|5| | | PASS
+|6| | | |PASS
+|7| | | |PASS
+|8| | | |PASS
+|9| | | |PASS
+|10| | | |PASS
+|11| | | |PASS
+
+### 90% of Requirements are linked to test cases. 
+
+### Exit Criteria 
+| ID | TEST DESCRIPTION| TEST STEPS | DATE | REQUIREMENT | PASS/FAIL |
+| --- | --- | --- | --- | --- | --- |
+| 1 | User fills out form and registers account | 1. Go to Register Page <BR/> 2. Fill out form <BR/> 3. Click Register | 2019/10/15 | 1, 1.1, 1.2, 2 | PASS |
+| 2 | User logs in with existing account | 1. Go to website <BR /> 2. Click Login <BR /> 3. Enter User Information <BR /> 4. Click Log In Button at the end of form | 2019/10/15 | 2, 3 | PASS |
+| 3 | Team Member User is able to upload media. | 1. Go to a portfolio page <BR /> 2. If user is in correct role they will see a upload files button. <BR /> 3. Click "browse" <BR /> 4. Select an image <BR /> 5. Click Upload | 2019/10/15 | 4, 5 | PASS |
+|4 | Admin Controls | 1. Admin User Logs in <BR /> 2. Click the Admin button <BR /> 3. Admin page displays <BR /> 4. Series of buttons will show to create roles, view roles, delete users, delete media | 2019/10/15 | 6,8,9,10 | PASS |
+
+### 100% of tests are passing.
+
+* **FINDINGS** 
+	* Not all media is showing on correct web pages
+	* Need to implement more CRUD controls
+	* Work on scaling images based on dimensions
 
 [**^**](https://github.com/juan-bustos/KPM#table-of-contents)
