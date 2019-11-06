@@ -2,7 +2,7 @@
 
 # **TABLE OF CONTENTS**
 
-1) [INTRODUCTION](https://github.com/juan-bustos/KPM#king-panda-media) <br>
+1) [INTRODUCTION](https://github.com/juan-bustos/KingPandaMedia) <br>
 2) [REQUIREMENTS](https://github.com/juan-bustos/KPM#requirements) <br>
 3) [DATA DESIGN](https://github.com/juan-bustos/KPM#data-design) <br>
 4) [UI DESIGN](https://github.com/juan-bustos/KPM#ui-design) <br>
@@ -14,7 +14,8 @@
 # KING PANDA MEDIA
 ### King Panda Media is primarily a multimedia company focused on providing the best product for various clientele ranging from commercial clients to the individual user.
 
-[**^**](https://github.com/juan-bustos/KPM#table-of-contents)
+[**^**](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#table-of-contents)
+
 
 # REQUIREMENTS 
 | REQUIREMENTS ID| REQUIREMENT NAME| REQUIREMENTS DESCRIPTION| TESTING METHOD|
