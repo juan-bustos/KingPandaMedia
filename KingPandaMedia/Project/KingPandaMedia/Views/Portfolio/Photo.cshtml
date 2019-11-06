@@ -1,47 +1,57 @@
 ﻿@model KingPandaMedia.Models.ViewModels.PhotoViewModel
+@using System.IO
+
 @{
     ViewData["Title"] = "Photo";
 }
 
 
 <body style="background-color: #0e0e0e">
-    <div class="text-white pt-2">
-        @if (User.IsInRole("Team Member"))
-        {
-        @section scripts{
-            <script>
-                $(document).ready(function () {
-                    $('.custom-file-input').on("change", function () {
-                        var fileName = $(this).val().split("\\").pop();
-                        $(this).next('.custom-file-label').html(fileName)
-                    })
-                });
-            </script>
-        }
-        <div class="row">
-            <strong class="text-center">
-                <label asp-for="ImageURL"></label>
-            </strong>
-            <form enctype="multipart/form-data" method="post" asp-action="Create" asp-controller="Portfolio">
-                <div class="custom-file m-0">
-                    <input asp-for="ImageURL" type="file" class="form-control custom-file-input col-sm-9" multiple />
-                    <label class="custom-file-label col-sm-6 border-0">Choose File...</label>
-                </div>
-                <span class="col-sm-3">
-                    <input asp-page-handler="Create" class="btn btn-light" type="submit" value="Upload" />
-                </span>
-            </form>
-        </div>
-        }
-    </div>
+    @if (User.IsInRole("Team Member"))
+    {
+        <div class="text-white pt-2">
 
+            @section scripts{
+                <script>
+                    $(document).ready(function () {
+                        $('.custom-file-input').on("change", function () {
+                            var fileName = $(this).val().split("\\").pop();
+                            $(this).next('.custom-file-label').html(fileName)
+                        })
+                    });
+                </script>
+            }
+            <div class="row">
+                <strong class="text-center">
+                    <label asp-for="ImageURL"></label>
+                </strong>
+                <form enctype="multipart/form-data" method="post" asp-action="Photo" asp-controller="Portfolio">
+                    <div class="custom-file m-0">
+                        <input asp-for="ImageURL" type="file" class="form-control custom-file-input col-sm-9" multiple />
+                        <label class="custom-file-label col-sm-6 border-0">Choose File...</label>
+                    </div>
+                    <span class="col-sm-3">
+                        <input asp-page-handler="Photo" class="btn btn-light" type="submit" value="Upload" />
+                    </span>
+                </form>
+            </div>
+
+        </div>
+    }
     <div class="row">
+
+
         @foreach (var photo in Model.Photo)
         {
-
-        <img class="img-fluid" style="max-height:inherit" src="https://kingpandamediastorage.blob.core.windows.net/kpmedia/@photo.ImageURL" />
-
-
+            @if (photo.ImageURL.Contains(".mp4"))
+            {
+                photo.ImageURL = null;
+            }
+            else
+            {
+                <img class="img-fluid" style="max-height:inherit" src="https://kingpandamediastorage.blob.core.windows.net/kpmedia/@photo.ImageURL" />
+            }
         }
+
     </div>
 </body>

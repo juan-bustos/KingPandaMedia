@@ -41,37 +41,46 @@ namespace KingPandaMedia.Controllers
                     Photo = portfolioRepository.Portfolios
                 });
         }
+
         [Authorize(Roles = "Team Member")]
         [HttpPost]
         public async Task<IActionResult> Photo(PhotoViewModel mediaFile)
         {
-
-            if (mediaFile != null)
+            try
             {
-                var file = HttpContext.Request.Form.Files;
-                bool uploadSuccess = false;
-                string uploadedUri = null;
-                if (file.Count != 0)
-                {                    
-                    string imgName = Guid.NewGuid().ToString();
-                    string extension = Path.GetExtension(file[0].FileName);                
-                    if (extension == ".jpg" || extension == ".gif" || extension == ".webm" || extension == ".jpeg" || extension == ".png")
+                if (mediaFile != null)
+                {
+                    var file = HttpContext.Request.Form.Files;
+                    bool uploadSuccess = false;
+                    string uploadedUri = null;
+                    if (file.Count != 0)
                     {
-                        extension = extension.Substring(1);
-                        mediaFile.ImageURL = imgName + '.' + extension;
-                        using var stream = file[0].OpenReadStream();
-                        (uploadSuccess, uploadedUri) = await UploadToBlob(mediaFile.ImageURL, stream, extension);
-                        TempData["uploadedUri"] = uploadedUri;
+                        string imgName = Guid.NewGuid().ToString();
+                        string extension = Path.GetExtension(file[0].FileName).ToLower();
+                        if (extension == ".jpg" || extension == ".gif" || extension == ".webm" || extension == ".jpeg" || extension == ".png" || extension == ".mp4")
+                        {
+                            extension = extension.Substring(1);
+                            mediaFile.ImageURL = imgName + '.' + extension;
+                            using var stream = file[0].OpenReadStream();
+                            (uploadSuccess, uploadedUri) = await UploadToBlob(mediaFile.ImageURL, stream, extension);
+                            TempData["uploadedUri"] = uploadedUri;
+                        }
+                        else
+                        {
+                            mediaFile.ImageURL = null;
+                        }
                     }
-                    else
-                    {
-                        mediaFile.ImageURL = null;
-                    }
+                    mediaDbContext.Portfolios.Add(mediaFile);
+                    mediaDbContext.SaveChanges();
                 }
-            mediaDbContext.Portfolios.Add(mediaFile);
-            mediaDbContext.SaveChanges();
+                return RedirectToAction("photo", "portfolio");
             }
-            return RedirectToAction("photo", "portfolio");
+            catch (Exception ex)
+            {
+                ViewData["message"] = ex.Message;
+                ViewData["trace"] = ex.StackTrace;
+                return View("Error");
+            }
         }
         private async Task<(bool, string)> UploadToBlob(string filename, Stream stream = null, string extension = "")
         {
@@ -93,13 +102,13 @@ namespace KingPandaMedia.Controllers
 
                     if (stream != null)
                     {
-                        if (extension.Equals("webm"))
+                        if (extension.Equals("mp4"))
                         {
                             cloudBlockBlob.Properties.ContentType = "video/" + extension;
                         }
                         else
                         {
-                            cloudBlockBlob.Properties.ContentType = "images/" + extension;
+                            cloudBlockBlob.Properties.ContentType = "image/" + extension;
                         }
                         await cloudBlockBlob.UploadFromStreamAsync(stream);
                     }
@@ -160,11 +169,6 @@ namespace KingPandaMedia.Controllers
                 mediaDbContext.SaveChanges();
             }
             return RedirectToAction("video", "portfolio");
-        }
-        [HttpGet]
-        public IActionResult Media()
-        {
-            return View();
         }
     }
 }

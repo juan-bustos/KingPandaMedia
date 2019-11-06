@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+using KingPandaMedia.Controllers;
 using KingPandaMedia.Models.Tables;
 
 namespace KingPandaMedia.Models.ViewModels

@@ -3,36 +3,55 @@
     ViewData["Title"] = "Video";
 }
 
-@if (User.IsInRole("Team Member"))
-{
-    <form enctype="multipart/form-data" method="post" asp-action="Videohfadhsfa sdlk" asp-controller="Portfolio">
-        <div class="form-group row">
-            <strong><label asp-for="ImageURL" class="col-sm-2 col-form-label"></label></strong>
-            <div class="col-sm-10">
-                <div class="custom-file">
-                    <input asp-for="ImageURL" type="file" class="form-control custom-file-input " multiple />
-                    <label class="custom-file-label">Choose File...</label>
-                </div>
+<body style="background-color: #0e0e0e">
+    @if (User.IsInRole("Team Member"))
+    {
+        <div class="text-white pt-2">
+
+            @section scripts{
+                <script>
+                    $(document).ready(function () {
+                        $('.custom-file-input').on("change", function () {
+                            var fileName = $(this).val().split("\\").pop();
+                            $(this).next('.custom-file-label').html(fileName)
+                        })
+                    });
+                </script>
+            }
+            <div class="row">
+                <strong class="text-center">
+                    <label asp-for="ImageURL"></label>
+                </strong>
+                <form enctype="multipart/form-data" method="post" asp-action="Video" asp-controller="Portfolio">
+                    <div class="custom-file m-0">
+                        <input asp-for="ImageURL" type="file" class="form-control custom-file-input col-sm-9" multiple />
+                        <label class="custom-file-label col-sm-6 border-0">Choose File...</label>
+                    </div>
+                    <span class="col-sm-3">
+                        <input asp-page-handler="Video" class="btn btn-light" type="submit" value="Upload" />
+                    </span>
+                </form>
             </div>
         </div>
-        @section scripts{
-            <script>
-                $(document).ready(function () {
-                    $('.custom-file-input').on("change", function () {
-                        var fileName = $(this).val().split("\\").pop();
-                        $(this).next('.custom-file-label').html(fileName)
-                    })
-                });
-            </script>
-        }
-        <input asp-page-handler="Create" class="btn btn-outline-primary" type="submit" value="Upload" />
-    </form>
-}
-<body>
-    <div style="background-color: #0e0e0e">
-        @foreach (var video in Model.Video)
-        {
-            <img class="img-fluid" src="https://kingpandamediastorage.blob.core.windows.net/kpmvideos/@video.ImageURL" />
-        }
-    </div>
+    }
+
+        <div class="row">
+
+
+            @foreach (var video in Model.Video)
+            {
+                @if (video.ImageURL.Contains(".mp4"))
+                {
+                    <video class="img-fluid" controls>
+                        <source src="https://kingpandamediastorage.blob.core.windows.net/kpmedia/@video.ImageURL" type="video/mp4" />
+                    </video>
+                }
+                else
+                {
+                    video.ImageURL = null;
+                }
+            }
+
+        </div>
+
 </body>
