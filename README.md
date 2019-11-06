@@ -40,10 +40,10 @@
 
 ### This is the basic Entity Relationship Diagram created for the KPM datatabase showcasing how the tables and different entities of the database interact with each other. As of now I am missing the attributes of each entity and I will be updating this in the future.
 
-<img src = "https://github.com/juan-bustos/KPM/blob/master/Images/Database%20Diagram%20KPM.PNG" />
+<img src = "https://github.com/juan-bustos/KingPandaMedia/blob/master/Images/Code%20First%20Database%20Diagram%20KPM.PNG" />
 
 # ERD
-<img src = "https://github.com/juan-bustos/KPM/blob/master/Images/Bustos%20Step%204%20ERD.png" />
+<img src = "https://github.com/juan-bustos/KingPandaMedia/blob/master/Images/Bustos%20Step%204%20ERD.png" />
 <details close>
 <summary>KPM DATABASE</summary>
 <p>
@@ -182,23 +182,21 @@ VALUES
 
 # UI DESIGN
 ### INDEX
-<img src = "https://github.com/juan-bustos/KPM/blob/master/Images/KPM-Index-Page.png" />
+<img src = "https://github.com/juan-bustos/KingPandaMedia/blob/master/Images/KPM-Index-Page.png" />
 
 ### PORTFOLIO PAGE
-<img src = "https://github.com/juan-bustos/KPM/blob/master/Images/KPM-Portfolio-Page.png" />
+<img src = "https://github.com/juan-bustos/KingPandaMedia/blob/master/Images/KPM-Portfolio-Page.png" />
 
 ### PHOTO SUBPAGE
-<img src = "https://github.com/juan-bustos/KPM/blob/master/Images/KPM-Photo-Subpage.png" />
+<img src = "https://github.com/juan-bustos/KingPandaMedia/blob/master/Images/KPM-Photo-Subpage.png" />
 
-### MULTIMEDIA SUBPAGE
-<img src ="https://github.com/juan-bustos/KPM/blob/master/Images/KPM-Media-Subpage.png" />
 
 [**^**](https://github.com/juan-bustos/KPM#table-of-contents)
 
 # PROJECT PLAN
 
 ### QUOTE CALCULATOR
-<img src ="https://github.com/juan-bustos/KPM/blob/master/Images/KPM-Calculator.png" />
+<img src ="https://github.com/juan-bustos/KingPandaMedia/blob/master/Images/KPM-Calculator.png" />
 
 [**^**](https://github.com/juan-bustos/KPM#table-of-contents)
 
