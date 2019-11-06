@@ -76,11 +76,34 @@
 * Need to further categorize images to add additional filters for storing images in correct containers
 * Create communication functions between Customer and KPM Team
 * Register and Login can be placed in one view instead of seperately
-* Would like to add more custom controls/pages for team members to display personel work.
+* Would like to add more custom controls/pages for team members to display personel work
 
 ## Architecture and Code
 ### [**PROJECT CODE**](https://github.com/juan-bustos/KingPandaMedia/tree/master/KingPandaMedia/Project/KingPandaMedia)
 
 ## Demonstration
-### https://kingpandamedia.azurewebsites.net/
-### [**KPM***](https://kingpandamedia.azurewebsites.net/)
+### https://kingpandamedia.azurewebsites.net/ | [**KPM**](https://kingpandamedia.azurewebsites.net/)
+
+## Lessons Learned
+### Things Done Right
+* Design
+* User Integration
+* Database Creation
+
+### Things Done Wrong
+* Gave-up a lot of functionality for front-end design
+* Setting over ambitious goals
+* Over committed to small functional bugs
+
+### Where were you lucky?
+* Everywhere
+* Initial Migrations and all other Database Updates
+* Most of my styling
+
+### What would I change/ Wish I knew?
+* The importance of the ERD
+* Being better with naming conventions
+* Restart / Organize my code better so it wouldn't be so scattered
+* Better understanding / utilization of Javascript
+
+
