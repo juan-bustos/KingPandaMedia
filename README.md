@@ -2,13 +2,13 @@
 
 # **TABLE OF CONTENTS**
 
-1) [INTRODUCTION](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#tableofcontents) <br>
+1) [INTRODUCTION](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#table-of-contents) <br>
 2) [REQUIREMENTS](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#requirements) <br>
-3) [DATA DESIGN](https://github.com/juan-bustos/KPM#data-design) <br>
-4) [UI DESIGN](https://github.com/juan-bustos/KPM#ui-design) <br>
-5) [PROJECT PLAN](https://github.com/juan-bustos/KPM#project-plan) <br>
-6) [PROJECT DEMO](https://github.com/juan-bustos/KPM#project-demo) <br>
-7) [TEST REPORT](https://github.com/juan-bustos/KPM#test-report)
+3) [DATA DESIGN](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#data-design) <br>
+4) [UI DESIGN](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#ui-design) <br>
+5) [PROJECT PLAN](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#project-plan) <br>
+6) [PROJECT DEMO](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#project-demo) <br>
+7) [TEST REPORT](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#test-report)
 
 
 # KING PANDA MEDIA
@@ -35,8 +35,7 @@
 | 10 | Delete Uploaded Media | System shall allow admin / team users to delete uploaded media | Inspection |
 | 11 | Admin Controls | System shall allow admin user to moderate web page | Inspection |
 	
-[**^**](https://github.com/juan-bustos/KPM#table-of-contents)
-
+[**^**](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#table-of-contents)
 # DATA DESIGN
 
 ### This is the basic Entity Relationship Diagram created for the KPM datatabase showcasing how the tables and different entities of the database interact with each other. As of now I am missing the attributes of each entity and I will be updating this in the future.
@@ -179,8 +178,7 @@ VALUES
 </p>
 </details>
 
-[**^**](https://github.com/juan-bustos/KPM#table-of-contents)
-
+[**^**](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#table-of-contents)
 # UI DESIGN
 ### INDEX
 <img src = "https://github.com/juan-bustos/KingPandaMedia/blob/master/Images/KPM-Index-Page.png" />
@@ -192,21 +190,18 @@ VALUES
 <img src = "https://github.com/juan-bustos/KingPandaMedia/blob/master/Images/KPM-Photo-Subpage.png" />
 
 
-[**^**](https://github.com/juan-bustos/KPM#table-of-contents)
-
+[**^**](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#table-of-contents)
 # PROJECT PLAN
 
 ### QUOTE CALCULATOR
 <img src ="https://github.com/juan-bustos/KingPandaMedia/blob/master/Images/KPM-Calculator.png" />
 
-[**^**](https://github.com/juan-bustos/KPM#table-of-contents)
-
+[**^**](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#table-of-contents)
 # PROJECT DEMO
 
 #### [King Panda Media](https://kingpandamedia.azurewebsites.net/)
 
-[**^**](https://github.com/juan-bustos/KPM#table-of-contents)
-
+[**^**](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#table-of-contents)
 # TEST REPORT
 
 # TESTING
@@ -252,4 +247,4 @@ VALUES
 	* Need to implement more CRUD controls
 	* Work on scaling images based on dimensions
 
-[**^**](https://github.com/juan-bustos/KPM#table-of-contents)
+[**^**](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#table-of-contents)
