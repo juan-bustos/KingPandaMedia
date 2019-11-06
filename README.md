@@ -1,4 +1,4 @@
-<img src ="https://github.com/juan-bustos/KPM/blob/master/Images/KP%20Logo%20Final.png" />
+<img src ="https://github.com/juan-bustos/KingPandaMedia/blob/master/Images/KP%20Logo%20Final.png" />
 
 # **TABLE OF CONTENTS**
 
