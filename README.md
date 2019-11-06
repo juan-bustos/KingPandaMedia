@@ -2,8 +2,8 @@
 
 # **TABLE OF CONTENTS**
 
-1) [INTRODUCTION](https://github.com/juan-bustos/KingPandaMedia) <br>
-2) [REQUIREMENTS](https://github.com/juan-bustos/KPM#requirements) <br>
+1) [INTRODUCTION](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md) <br>
+2) [REQUIREMENTS](https://github.com/juan-bustos/KingPandaMedia/blob/master/README.md#requirements) <br>
 3) [DATA DESIGN](https://github.com/juan-bustos/KPM#data-design) <br>
 4) [UI DESIGN](https://github.com/juan-bustos/KPM#ui-design) <br>
 5) [PROJECT PLAN](https://github.com/juan-bustos/KPM#project-plan) <br>
