@@ -16,22 +16,23 @@
 
 [**^**](https://github.com/juan-bustos/KPM#table-of-contents)
 
-# REQUIREMENTS
-
-* **USER** 
-	* 1.1 Account Creation
-	* 1.2 Navigate through webpage
-	* 1.3 See an estimate price for services provided
-	* 1.4 Able to contact team / team members by e-mail
-	* 1.5 Access/Ability to download personal imagery products ***(Future Update)***
-
-* **SYSTEM**
-	* 2.1 Verify Account Creation Form is Valid
-	* 2.2 Ensure that User is not a bot
-	* 2.3 Distinguishes between regular users and admin users
-
-* **SOFTWARE**
-	* 3.1 Ensure that webpage scales to device width for best user experience
+# REQUIREMENTS 
+| REQUIREMENTS ID| REQUIREMENT NAME| REQUIREMENTS DESCRIPTION| TESTING METHOD|
+| --- | --- | --- | --- |
+| 1 | Create Users | System shall allow users to be created | Inspection |
+| 1.1 | User Forms | System shall allow users to input personal information for creating account | Inspection |
+| 1.2 | Authenticate Forms | System shall ensure that form is filled out correctly | Inspection |
+| 1.3 | Third-Party Authentication | System shall allow for third party authentication | Inspection |
+| 2 | Authenticate User | System shall ensure that user is created successfully | Inspection |
+| 3 | Login Users | System shall login users through e-mail and password | Inspection |
+| 4 | Upload Media | System shall allow Team Member users to upload media | Inspection |
+| 5 | Display Media | System shall show media that is uploaded | Inspection |
+| 6 |  Delete Users | System shall allow admin to delete users | Inspection |
+| 7 |  Edit User Roles | System shall allow admin to edit user roles as needed | Inspection |
+| 8 |  Add User Roles | System shall allow admin to add user roles as needed | Inspection |
+| 9 | Delete User Roles | System shall allow admin to delete user roles as needed | Inspection |
+| 10 | Delete Uploaded Media | System shall allow admin / team users to delete uploaded media | Inspection |
+| 11 | Admin Controls | System shall allow admin user to moderate web page | Inspection |
 	
 [**^**](https://github.com/juan-bustos/KPM#table-of-contents)
 
@@ -203,29 +204,11 @@ VALUES
 
 # PROJECT DEMO
 
-#### [KPM PROTOTYPE](https://kpmv2.conveyor.cloud/)
+#### [King Panda Media](https://kingpandamedia.azurewebsites.net/)
 
 [**^**](https://github.com/juan-bustos/KPM#table-of-contents)
 
 # TEST REPORT
-
-# REQUIREMENTS 
-| REQUIREMENTS ID| REQUIREMENT NAME| REQUIREMENTS DESCRIPTION| TESTING METHOD|
-| --- | --- | --- | --- |
-| 1 | Create Users | System shall allow users to be created | Inspection |
-| 1.1 | User Forms | System shall allow users to input personal information for creating account | Inspection |
-| 1.2 | Authenticate Forms | System shall ensure that form is filled out correctly | Inspection |
-| 1.3 | Third-Party Authentication | System shall allow for third party authentication | Inspection |
-| 2 | Authenticate User | System shall ensure that user is created successfully | Inspection |
-| 3 | Login Users | System shall login users through e-mail and password | Inspection |
-| 4 | Upload Media | System shall allow Team Member users to upload media | Inspection |
-| 5 | Display Media | System shall show media that is uploaded | Inspection |
-| 6 |  Delete Users | System shall allow admin to delete users | Inspection |
-| 7 |  Edit User Roles | System shall allow admin to edit user roles as needed | Inspection |
-| 8 |  Add User Roles | System shall allow admin to add user roles as needed | Inspection |
-| 9 | Delete User Roles | System shall allow admin to delete user roles as needed | Inspection |
-| 10 | Delete Uploaded Media | System shall allow admin / team users to delete uploaded media | Inspection |
-| 11 | Admin Controls | System shall allow admin user to moderate web page | Inspection |
 
 # TESTING
 ### Entrance Criteria 
